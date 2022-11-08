@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>abacus.io</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <style>
+    body {
+      font-family: "Lucida Console", monospace;
+      background-image: url("/images/background.png");
+    }
+    table {
+      margin: auto;
+    }
+    th {
+      border: 0px solid black;
+      text-align: left;
+      padding: 5px;
+    }
+    td {
+      border: 0px solid black;
+      padding: 5px;
+    }
+    .navIC {
+      margin-right: 3px;
+    }
+    a {color: white;} a:hover {color: white;}
+    .trNav:hover {background-color: #555f2e;}
+    .abacus {
+      margin-top: 5px;
+    }
+  </style>
+  
+  <script type="text/javascript" async>
+    var fileDefault = function(id) {
+      repID = id.concat("F");
+      document.getElementById(repID).src = "/images/fileIcon.png";
+    }
+    var folderDefault = function(id) {
+      repID = id.concat("F");
+      document.getElementById(repID).src = "/images/folderIcon.png";
+    }
+    var navHovers = function(id) {
+      repID = id.concat("F");
+      repImage = document.getElementById(repID).src;
+      repImage = repImage.replace(".png", "_hover.png");
+      document.getElementById(repID).src = repImage;
+    }
+    var incrementAbacus = function(id) {
+      value = document.getElementById(id).getAttribute("src");
+      const prefix = "/images/";
+      value = value.replace("/images/", "");
+      value = value.replace(".png", "");
+      value = parseInt(value);
+      if (value == 9) {
+        document.getElementById(id).src = "/images/0.png";
+      } else {
+        value++;
+        value = value.toString();
+        value = value.concat(".png");
+        document.getElementById(id).src = prefix.concat(value);
+      }
+    }
+  </script>
+</head>
+  
+<body>
+ <table style="width:50%;height:100vh;">
+  <tr height="9%">
+    <th colspan="2"><img src="/images/title.png" width="300px" style="margin-top:5px;"></th>
+  </tr>
+  <tr height="1%">
+    <td style="color:white;background-color:#545e2d;"><b>Navigation</b></td>
+    <td style="color:white;background-color:#293016;">
+      <section layout:fragment="fileview">Fileview here</section>
+    </td>
+  </tr>
+  <tr style="vertical-align:text-top;">
+    <td width="20%" style="background-color:#616e32;">
+      <table style="width:100%;color:white;">
+        <tr class="trNav"><td><img src="/images/fileIcon.png" class="navIC" id="landingF" width="20px"><a th:href="@{/}" class="navLink" id="landing" onmouseover="navHovers(id)" onmouseout="fileDefault(id)"><u>L</u>anding</a></td></tr>
+    <tr class="trNav"><td><img src="/images/fileIcon.png" class="navIC" id="aboutF" width="20px"><a th:href="@{/about-us}" class="navLink" id="about" onmouseover="navHovers(id)" onmouseout="fileDefault(id)"><u>A</u>bout us</a></td></tr>
+    <tr class="trNav"><td><img src="/images/folderIcon.png" class="navIC" width="26.4px">Information</td></tr>
+    <tr class="trNav"><td>&emsp;⤷<img src="/images/fileIcon.png" class="navIC" id="historyF" width="20px"><a th:href="@{/history}" class="navLink" id="history" onmouseover="navHovers(id)" onmouseout="fileDefault(id)"><u>H</u>istory</a></td></tr>
+    <tr class="trNav"><td>&emsp;⤷<img src="/images/fileIcon.png" class="navIC" id="guidesF" width="20px"><a th:href="@{/guides}" class="navLink" id="guides" onmouseover="navHovers(id)" onmouseout="fileDefault(id)"><u>G</u>uides</a></td></tr>
+      </table>
+    </td>
+    <td style="color:white;background-color:#464927;vertical-align:top;">
+      <section layout:fragment="content">Content here</section>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" height="5%" style="text-align:center;vertical-align:bottom;">Studio A.S.A.M. © 2022-2022</td>
+  </tr>
+</table>
+</body>
+
+<section layout:fragment="script"></section>
+
+</html>
