@@ -14,5 +14,13 @@ public class SiteController {
 	public String aboutUs() {
 		return "about-us";
 	}
+	@GetMapping("/history")
+	public String history() {
+		return "history";
+	}
+	@GetMapping("/guides")
+	public String guides() {
+		return "guides";
+	}
 
 }

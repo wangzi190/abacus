@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org"></html>
 
 <head>
   <meta charset="utf-8">
@@ -73,9 +73,7 @@
   </tr>
   <tr height="1%">
     <td style="color:white;background-color:#545e2d;"><b>Navigation</b></td>
-    <td style="color:white;background-color:#293016;">
-      <section layout:fragment="fileview">Fileview here</section>
-    </td>
+    <td style="color:white;background-color:#293016;"><a th:href="@{/}"><u>L</u>anding</a> > <b>History</b></td>
   </tr>
   <tr style="vertical-align:text-top;">
     <td width="20%" style="background-color:#616e32;">
@@ -87,16 +85,12 @@
     <tr class="trNav"><td>&emsp;⤷<img src="/images/fileIcon.png" class="navIC" id="guidesF" width="20px"><a th:href="@{/guides}" class="navLink" id="guides" onmouseover="navHovers(id)" onmouseout="fileDefault(id)"><u>G</u>uides</a></td></tr>
       </table>
     </td>
-    <td style="color:white;background-color:#464927;vertical-align:top;">
-      <section layout:fragment="content">Content here</section>
-    </td>
+    <td style="color:white;background-color:#464927;vertical-align:top;">Content here</td>
   </tr>
   <tr>
     <td colspan="2" height="5%" style="text-align:center;vertical-align:bottom;">Studio A.S.A.M. © 2022-2022</td>
   </tr>
 </table>
+  
 </body>
-
-<section layout:fragment="script"></section>
-
 </html>
