@@ -10,5 +10,9 @@ public class SiteController {
 	public String index() {
 		return "index";
 	}
-	
+	@GetMapping("/about-us")
+	public String aboutUs() {
+		return "about-us";
+	}
+
 }
